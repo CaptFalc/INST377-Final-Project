@@ -46,13 +46,29 @@
             </nav>
             <h1>Just the Recipes, Please!</h1><br>
             <div class="search-container">
-                <form action="/action_page.php">
-                  <input type="text" placeholder="Search.." name="search">
+                <form id = "recipeForm">
+                  <input type="text" placeholder="Search.." name="search" id = "searchVal">
                   <button type="submit"><i class="fa fa-search"></i></button>
+                  <div id = "resultsContainer"></div>
                 </form>
+                <div id = "ingredientsUpto">
+                    <label for="num">Max Number of Ingredients: </label>
+                    <select id = "num">
+                        
+                    </select>
+                    
+                </div>
             </div><br>
+            <div id="checkboxContainer">
+                <!-- Checkboxes will be dynamically added here -->
+            </div>
             <div class="line"></div>
-            <h2>[Recipe Name Here]</h2>
+            <h2 id = "recipeName"></h2>
+            <img id = "recipePic" style = "width: 200px; height: auto"><br><br>
+            <div class = "recipeIngredient" id = ingredients>
+            </div>
+
+            </div>
             <p></p>
 
             <div class="line"></div>
@@ -72,6 +88,7 @@
             });
         });
     </script>
+    <script src = "script.js"></script>
 </body>
 
 </html>

@@ -45,9 +45,38 @@
                 </div>
             </nav>
             <h1>Just the Recipes, Please!</h1><br>
-            <p>[Insert API Details Here]</p>
+            <div class="search-container">
+                <form action="/action_page.php">
+                  <input type="text" placeholder="Search.." name="search">
+                  <button type="submit"></button>
+                </form>
+            </div><br>
+            <label class="container">One
+                <input type="checkbox" checked="checked">
+                <span class="checkmark"></span>
+              </label>
+              
+              <label class="container">Two
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              
+              <label class="container">Three
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              
+              <label class="container">Four
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
             <div class="line"></div>
-            <h2>[Recipe Name Here]</h2>
+            <br>
+            <div class = "recipeContainer">
+                <h2 id = "recipeName"></h2>
+                <img id = "recipeImage">
+                <p id = "recipeIngredients"></p>
+            </div>  
             <p></p>
 
             <div class="line"></div>

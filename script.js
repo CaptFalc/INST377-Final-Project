@@ -45,6 +45,7 @@ function searchRecipes() {
 }
 
     function displayResults(results) {
+        const resultsContainer = document.getElementById('resultsContainer');
         resultsContainer.innerHTML = '';
         const ingredientNum = document.getElementById('num')
 
@@ -56,19 +57,25 @@ function searchRecipes() {
         const filteredRecipes = []
         
         for(let i = 0; i < results.length; i++) {
-            if (results[i].recipe.ingredientLines.length <= ingredientNum.value) {
+            if (results[i].recipe.ingredientLines.length <= ingredientNum.value || ingredientNum.value >= '9') {
                 filteredRecipes.push(results[i])
             }
         }
 
         filteredRecipes.forEach(result => {
             document.getElementById('ingredients').innerHTML = ""
+
             const resultItem = document.createElement('div');
+            const resultPic = document.createElement('img')
+            resultItem.setAttribute("id", 'resultsContainer')
             resultItem.textContent = result.recipe.label;
+            resultPic.src = result.recipe.image;
+            resultItem.append(resultPic)
 
             resultItem.addEventListener('click', () => {
                 document.getElementById('recipeName').innerHTML = result.recipe.label;
                 document.getElementById('recipePic').src = result.recipe.image;
+                createPieChart(getNutritionalValue(result.recipe))
 
                 const ingredientsList = result.recipe.ingredientLines;
                 const titleName = document.createElement('h3')
@@ -89,7 +96,31 @@ function searchRecipes() {
         });
         resultsContainer.style.display = 'block';
     }
+
+    function getNutritionalValue(recipe) {
+        return {
+            calories: recipe.calories,
+            protein: recipe.totalNutrients.PROCNT.quantity,
+            carbs: recipe.totalNutrients.CHOCDF.quantity,
+            fat: recipe.totalNutrients.FAT.quantity,
+        }
+    }
     
+    function createPieChart(nutritionValues) {
+        const ctx = document.getElementById('nutrientPieChart').getContext('2d');
+        const myPieChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Protein', 'Carbs', 'Fat'],
+                datasets: [{
+                    data: [nutritionValues.protein, nutritionValues.carbs, nutritionValues.fat],
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+                }],
+            },
+            options: {
+                responsive: false
+            }
+        });
+    }
     
 searchRecipes()
-ingredientsDropdown()

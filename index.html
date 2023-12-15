@@ -11,6 +11,8 @@
     <!--Awesome & Solid JS Font-->
     <script src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -49,7 +51,10 @@
                 <form id = "recipeForm">
                   <input type="text" placeholder="Search.." name="search" id = "searchVal">
                   <button type="submit"><i class="fa fa-search"></i></button>
-                  <div id = "resultsContainer"></div>
+                  <div class = "resultDiv">
+                    <div class = "resultDiv-content" id = "resultsContainer">
+                    </div>
+                  </div>
                 </form>
                 <div id = "ingredientsUpto">
                     <label for="num">Max Number of Ingredients: </label>
@@ -63,13 +68,12 @@
                         <option value="7">7</option>
                         <option value="8">8</option>
                         <option value="9">9</option>
-                    </select>
-                    
+                    </select> 
                 </div>
             </div><br>
-            <div id="checkboxContainer">
-                <!-- Checkboxes will be dynamically added here -->
-            </div>
+            <canvas id="nutrientPieChart" class = "piChart">
+                
+            </canvas>
             <div class="line"></div>
             <h2 id = "recipeName"></h2>
             <img id = "recipePic" style = "width: 200px; height: auto"><br><br>

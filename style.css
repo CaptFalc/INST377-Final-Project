@@ -119,8 +119,9 @@ img {
   background-color: #86a594;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  width: 40%;
+  width: relative;
   border-radius: 5px;
+  padding: relative;
 }
 
 .resultDiv {
@@ -150,7 +151,9 @@ img {
   
 .resultDiv:hover {background-color: #3e8e41;}
 
-.piChart {
-    width: 125px;
-    height:auto
+.recipeDetails {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 3px;
 }

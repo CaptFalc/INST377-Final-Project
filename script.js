@@ -2,6 +2,7 @@ const edamamAppID = '2a44c43f'
 const edamamAppKey = '0274ad830b2f31ef93004443ef6e46cb'
 const apiSearchURL = 'https://api.edamam.com/search'
 
+
 //Lowering API Requests
 const debounce = (func, delay) => {
     let timeoutId;
@@ -20,14 +21,14 @@ function searchRecipes() {
     const resultsContainer = document.getElementById('resultsContainer');
     const submitButton = document.getElementById('recipeForm')
 
+    searchInput.addEventListener('input', debounce(handleInput, 3000));
+
     recipeForm.addEventListener('submit', function(event) {
         event.preventDefault();
 
         handleInput();
     })
 
-    searchInput.addEventListener('input', debounce(handleInput, 3000));
-    
     function handleInput() {
         const searchTerm = searchInput.value.trim();
         if (searchTerm.length === 0) {
@@ -38,17 +39,17 @@ function searchRecipes() {
         fetch(builtURL) 
             .then(response => response.json())
             .then(data => {
-                displayResults(data.hits);
+                dropdownResults(data.hits);
             })
             .catch(error => console.error('Error Fetching Data!', error));
     }
 }
 
-    function displayResults(results) {
+    function dropdownResults(results) {
         const resultsContainer = document.getElementById('resultsContainer');
-        resultsContainer.innerHTML = '';
         const ingredientNum = document.getElementById('num')
-
+        resultsContainer.innerHTML = '';
+        
         if(results.length === 0) {
             resultsContainer.style.display = 'none';
             return;
@@ -63,38 +64,41 @@ function searchRecipes() {
         }
 
         filteredRecipes.forEach(result => {
-            document.getElementById('ingredients').innerHTML = ""
-
             const resultItem = document.createElement('div');
             const resultPic = document.createElement('img')
             resultItem.setAttribute("id", 'resultsContainer')
             resultItem.textContent = result.recipe.label;
             resultPic.src = result.recipe.image;
             resultItem.append(resultPic)
+            resultsContainer.appendChild(resultItem);
 
             resultItem.addEventListener('click', () => {
-                document.getElementById('recipeName').innerHTML = result.recipe.label;
-                document.getElementById('recipePic').src = result.recipe.image;
-                createPieChart(getNutritionalValue(result.recipe))
-
-                const ingredientsList = result.recipe.ingredientLines;
-                const titleName = document.createElement('h3')
-                titleName.textContent = 'Ingredient List'
-                titleName.style.textAlign = "center"
-                document.getElementById('ingredients').appendChild(titleName)
-
-                ingredientsList.forEach(ingredient => {
-                    const listItem = document.createElement('li');
-                    listItem.textContent = ingredient;
-                    document.getElementById('ingredients').appendChild(listItem);
-                })
-
-                resultsContainer.style.display = 'none';
+                resultsContainer.innerHTML = ""
+                displayOnClick(result)
             });
-
-            resultsContainer.appendChild(resultItem);
         });
-        resultsContainer.style.display = 'block';
+}
+
+    function displayOnClick(result) {
+        document.getElementById('ingredients').innerHTML = "";
+        document.getElementById('recipeName').innerHTML = result.recipe.label;
+        document.getElementById('yield').innerHTML = "Serves " + result.recipe.yield
+        document.getElementById('recipePic').src = result.recipe.image;
+        const ingredients = document.getElementById('ingredients');
+        createPieChart(getNutritionalValue(result.recipe))
+
+        const ingredientsList = result.recipe.ingredientLines;
+        const titleName = document.createElement('h3')
+        titleName.textContent = 'Ingredient List'
+        titleName.style.textAlign = "center"
+        ingredients.appendChild(titleName)
+
+        ingredientsList.forEach(ingredient => {
+            const listItem = document.createElement('li');
+            listItem.textContent = ingredient;
+            ingredients.appendChild(listItem);
+        })
+
     }
 
     function getNutritionalValue(recipe) {
@@ -106,9 +110,13 @@ function searchRecipes() {
         }
     }
     
+    let myPieChart;
     function createPieChart(nutritionValues) {
-        const ctx = document.getElementById('nutrientPieChart').getContext('2d');
-        const myPieChart = new Chart(ctx, {
+        if (myPieChart) {
+            myPieChart.destroy();
+        }
+        ctx = document.getElementById('nutrientPieChart').getContext('2d');
+        myPieChart = new Chart(ctx, {
             type: 'pie',
             data: {
                 labels: ['Protein', 'Carbs', 'Fat'],
@@ -118,7 +126,8 @@ function searchRecipes() {
                 }],
             },
             options: {
-                responsive: false
+                responsive: true,
+                maintainAspectRatio: false
             }
         });
     }

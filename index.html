@@ -71,16 +71,24 @@
                     </select> 
                 </div>
             </div><br>
-            <canvas id="nutrientPieChart" class = "piChart">
-                
-            </canvas>
             <div class="line"></div>
-            <h2 id = "recipeName"></h2>
-            <img id = "recipePic" style = "width: 200px; height: auto"><br><br>
-            <div class = "recipeIngredient" id = ingredients>
+            <div class= "recipeDetails">
+                <div>
+                    <h2 id = "recipeName"></h2>
+                    <h4 id= "yield"><em></em></h4>
+                    <img id = "recipePic" style = "width: 200px; height: auto"><br><br>
+                    <div class = "recipeIngredient" id = ingredients></div>
+                </div>
+                <div id = "recipeInstructions">
+
+                </div>
+                <div class = "piChartContainer">
+                    <canvas id="nutrientPieChart" width="350" height="350"></canvas>
+                </div>
             </div>
 
             </div>
+        </div>
             <p></p>
 
             <div class="line"></div>
@@ -102,5 +110,7 @@
     </script>
     <script src = "script.js"></script>
 </body>
+
+
 
 </html>

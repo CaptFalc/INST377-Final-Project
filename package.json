@@ -1,16 +1,43 @@
 {
   "name": "scraper",
   "version": "1.0.0",
-  "description": "",
   "main": "urlScrapper.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node urlScrapper.js"
   },
   "dependencies": {
+    "@babel/core": "^7.23.6",
     "axios": "^1.6.2",
     "cheerio": "^1.0.0-rc.12",
     "express": "^4.18.2",
     "http-server": "^14.1.1"
-  }
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.23.6",
+    "@babel/preset-react": "^7.23.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babelify": "^10.0.0",
+    "browserify": "^17.0.0"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "@babel/preset-env"
+          ]
+        }
+      ]
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

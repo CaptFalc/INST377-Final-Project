@@ -2,7 +2,6 @@ const edamamAppID = '2a44c43f'
 const edamamAppKey = '0274ad830b2f31ef93004443ef6e46cb'
 const apiSearchURL = 'https://api.edamam.com/search'
 
-
 //Lowering API Requests
 const debounce = (func, delay) => {
     let timeoutId;

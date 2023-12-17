@@ -1,6 +1,9 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
-const express = require('express');
+
+export {
+    scrapeRecipe
+}
 
 function findInstructions(obj) {
     for (const key in obj) {
@@ -42,21 +45,13 @@ async function scrapeRecipe (url){
         if (!recipeScript) {
             throw new Error('No recipe information found on the page.');
         }
-
         const recipeData = JSON.parse(recipeScript);
         const recipeInstructions = instructionFormatter(findInstructions(recipeData));
-        console.log(recipeInstructions);
         return recipeInstructions;
-        
-
-        //const recipeInstructions = recipeData['@graph'].find(item => item['@type'] === 'Recipe')['recipeInstructions'] || [];
-
-        //console.log(recipeInstructions)
     } catch(error) {
-        console.error('Error Scraping recipe.')
+        console.error('Error Scraping Recipe.')
         return []
     }
-
 }
 
-scrapeRecipe("https://www.allrecipes.com/the-best-hot-crab-dip-recipe-8414926");
+scrapeRecipe("https://cafedelites.com/butter-chicken/");

@@ -1,6 +1,7 @@
 const edamamAppID = '2a44c43f'
 const edamamAppKey = '0274ad830b2f31ef93004443ef6e46cb'
 const apiSearchURL = 'https://api.edamam.com/search'
+import { scrapeRecipe } from "./urlScraper";
 
 //Lowering API Requests
 const debounce = (func, delay) => {
@@ -85,6 +86,7 @@ function searchRecipes() {
         document.getElementById('recipePic').src = result.recipe.image;
         const ingredients = document.getElementById('ingredients');
         createPieChart(getNutritionalValue(result.recipe))
+        console.log(scrapeRecipe(result.recipe.url))
 
         const ingredientsList = result.recipe.ingredientLines;
         const titleName = document.createElement('h3')

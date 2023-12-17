@@ -81,7 +81,7 @@ function searchRecipes() {
     function displayOnClick(result) {
         document.getElementById('ingredients').innerHTML = "";
         document.getElementById('recipeName').innerHTML = result.recipe.label;
-        document.getElementById('yield').innerHTML = "Serves " + result.recipe.yield
+        document.getElementById('yield').innerHTML = "Serves " + result.recipe.yield;
         document.getElementById('recipePic').src = result.recipe.image;
         const ingredients = document.getElementById('ingredients');
         createPieChart(getNutritionalValue(result.recipe))

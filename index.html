@@ -11,7 +11,11 @@
     <!--Awesome & Solid JS Font-->
     <script src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
-    <script src = "urlScraper.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/commonjs-require@1.4.6/commonjs-require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/cheerio"></script>
 </head>
 
 <body>
@@ -75,7 +79,7 @@
                 <div>
                     <h2 id = "recipeName"></h2>
                     <h4 id= "yield"><em></em></h4>
-                    <img id = "recipePic" style = "width: 200px; height: auto"><br><br>
+                    <img id = "recipePic" style = "width: 400px; height: auto"><br><br>
                     <div class = "recipeIngredient" id = ingredients></div>
                 </div>
                 <div id = "recipeInstructions">
@@ -96,10 +100,9 @@
 
         </div>
     </div>
-
     <!--Bootstrap Code for Sidebar Navigation -->
     <!-- jQuery CDN - Slim version (=without AJAX) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
@@ -108,6 +111,7 @@
         });
     </script>
     <script src = "script.js"></script>
+    <script src = "urlScraper.js"></script>
 </body>
 
 

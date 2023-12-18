@@ -1,8 +1,8 @@
 const edamamAppID = '2a44c43f'
 const edamamAppKey = '0274ad830b2f31ef93004443ef6e46cb'
 const apiSearchURL = 'https://api.edamam.com/search'
-//const { scrapeRecipe } = require('./urlScraper.js');
-import { scrapeRecipe } from './urlScraper.js';
+
+
 //Lowering API Requests
 const debounce = (func, delay) => {
     let timeoutId;
@@ -15,6 +15,7 @@ const debounce = (func, delay) => {
         }, delay);
     };
 };
+
 
 function searchRecipes() {
     const searchInput = document.getElementById('searchVal');
@@ -80,19 +81,30 @@ function searchRecipes() {
 }
 
     function displayOnClick(result) {
+        resultsContainer = ""
+        document.getElementById('recipeInstructions').innerHTML = "";
         document.getElementById('ingredients').innerHTML = "";
+
         document.getElementById('recipeName').innerHTML = result.recipe.label;
         document.getElementById('yield').innerHTML = "Serves " + result.recipe.yield;
         document.getElementById('recipePic').src = result.recipe.image;
         const ingredients = document.getElementById('ingredients');
         createPieChart(getNutritionalValue(result.recipe))
-        console.log(scrapeRecipe(result.recipe.url))
 
         const ingredientsList = result.recipe.ingredientLines;
         const titleName = document.createElement('h3')
         titleName.textContent = 'Ingredient List'
         titleName.style.textAlign = "center"
         ingredients.appendChild(titleName)
+
+        const instructions = document.getElementById('recipeInstructions')
+        var urlButton = document.createElement('button')
+        urlButton.innerHTML = result.recipe.label + " Instructions"
+        urlButton.addEventListener ("click", function() {
+            window.open(result.recipe.url, "_blank");
+          });
+        urlButton.classList.add('greenbutton')
+        instructions.append(urlButton)
 
         ingredientsList.forEach(ingredient => {
             const listItem = document.createElement('li');
@@ -132,5 +144,10 @@ function searchRecipes() {
             }
         });
     }
+
+   
+ function addMetric(vegan) {
     
+ }
+  
 searchRecipes()

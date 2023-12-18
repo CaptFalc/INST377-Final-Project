@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just the Recipes, Please!</title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!--Awesome & Solid JS Font-->
+    <script src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>INST377 Final Project</h3>
+            </div>
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/about">About</a>
+                </li>
+                <li>
+                    <a href="/doc">Docs</a>
+                </li>
+                <li>
+                    <a href="/contact">Contact</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- Page Content  -->
+        <div id="content">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                    </button>
+                </div>
+            </nav>
+            <h1><center>Contact us!</center></h1><br><br><br><br><br><br>
+            <div class="row">
+                <div class="column"><center>
+                  <a href = "https://github.com/CaptFalc"><img src="https://avatars.githubusercontent.com/u/58947248?v=4" alt="Wadi" style="width:55%"></a>
+                  <br><br>
+                  <h4><center>Wadi Ahmed/CaptFalc</center></h4></center>
+                  <h6><center><em>wadiahmed2@gmail.com</em></center></h6></center>
+                </div>
+                <div class="column"><center>
+                  <a href = "https://github.com/Carrot1031"><img src="https://avatars.githubusercontent.com/u/132115003?v=4" alt="Wadi" style="width:55%"></a>
+                  <br><br>
+                  <h4><center>Sky Reed/Carrot1031</center></h4></center>
+                </div>
+                <div class="column"><center>
+                  <a href = "https://github.com/mkaur15"><img src="https://avatars.githubusercontent.com/u/132076587?v=4" alt="Wadi" style="width:55%"></a>
+                  <br><br>
+                  <h4><center>Manpreet Kaur/mkaur15</center></h4></center>
+                </div>
+            </div>
+            <div class="line"></div><br><br>
+            <div>
+            <div class="line"></div>
+            <h2></h2>
+            <p></p>
+
+        </div>
+    </div>
+
+    <!--Bootstrap Code for Sidebar Navigation -->
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

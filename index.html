@@ -7,13 +7,12 @@
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <!--Awesome & Solid JS Font-->
     <script src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
@@ -25,16 +24,16 @@
             </div>
             <ul class="list-unstyled components">
                 <li class="active">
-                    <a href="index.html">Home</a>
+                    <a href="/">Home</a>
                 </li>
                 <li>
-                    <a href="about.html">About</a>
+                    <a href="/about">About</a>
                 </li>
                 <li>
-                    <a href="#">Docs</a>
+                    <a href="/doc">Docs</a>
                 </li>
                 <li>
-                    <a href="#">Contact</a>
+                    <a href="/contact">Contact</a>
                 </li>
             </ul>
         </nav>
@@ -80,12 +79,14 @@
                     <img id = "recipePic" style = "width: 400px; height: auto"><br><br>
                     <div class = "recipeIngredient" id = ingredients></div>
                 </div>
+            <div id = "auxContainer" style = "width: 50%; float: left; text-align: center;">
                 <div id = "recipeInstructions">
-
+                    
                 </div>
                 <div class = "piChartContainer">
-                    <canvas id="nutrientPieChart" width="350" height="350"></canvas>
+                    <canvas id="nutrientPieChart" width="50%" height="350"></canvas>
                 </div>
+            </div>
             </div>
 
             </div>
@@ -108,7 +109,7 @@
         });
     </script>
 
-    <script src = "script.js" type = "module"></script>
+    <script src = "/script.js"></script>
 </body>
 
 

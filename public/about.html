@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just the Recipes, Please!</title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!--Awesome & Solid JS Font-->
+    <script src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>INST377 Final Project</h3>
+            </div>
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/about">About</a>
+                </li>
+                <li>
+                    <a href="/doc">Docs</a>
+                </li>
+                <li>
+                    <a href="/contact">Contact</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- Page Content  -->
+        <div id="content">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                    </button>
+                </div>
+            </nav>
+            <h1><center>Meet the Team :)</center></h1><br>
+            <div class="row">
+                <div class="column"><center>
+                  <img src="pictures/wadi.png" alt="Wadi" style="width:55%">
+                  <br><br>
+                  <h4><center>Wadi Ahmed</center></h4></center>
+                </div>
+                <div class="column">
+                  <img src="https://i.pinimg.com/736x/56/fe/ea/56feea560da7e2965739dcf6ade8d6a9.jpg" alt="Luigi" style="width:100%">
+                </div>
+                <div class="column">
+                  <img src="https://static.wikia.nocookie.net/nonhuman-video-game-flattenings/images/6/62/Bowser.jpg/revision/latest?cb=20160203233710" alt="Bowser" style="width:100%">
+                </div>
+            </div>
+            <div class="line"></div><br><br>
+            <div>
+            <h2><em><center>What made us decide on our project?</center></em></h2>
+                <p style = "font-size: 20px;"><center>One of the biggest issues with recipes on the internet is how much filler content goes into the webpage. Things like 
+                   author's personal insights, huge ads, and so many pictures, means that the actual content you're looking for (the recipe!),
+                   just gets pushed to the bottom of the page. Our goal in this project was to make the process of finding recipes much easier,
+                   so you can focus on the most important thing: cooking dinner!
+                </center></p>
+                <h2><em><center>Future work...</center></em></h2>
+                <p style = "font-size: 20px;"><center>One of the things we missed out on working in this project was a web-scraping tool that would allow us to fetch
+                    information from the URL given by the Edamam API and format it on our site. This is definitely something to work on in the future.
+                </center></p>
+            </div>
+
+            <div class="line"></div>
+            <h2></h2>
+            <p></p>
+
+        </div>
+    </div>
+
+    <!--Bootstrap Code for Sidebar Navigation -->
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

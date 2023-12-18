@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just the Recipes, Please!</title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!--Awesome & Solid JS Font-->
+    <script src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>INST377 Final Project</h3>
+            </div>
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/about">About</a>
+                </li>
+                <li>
+                    <a href="/doc">Docs</a>
+                </li>
+                <li>
+                    <a href="/contact">Contact</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- Page Content  -->
+        <div id="content">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                    </button>
+                </div>
+            </nav>
+            <h1>Documentation</h1><br>
+            <div class="row" >
+                <div class="column"><center>
+                  <img src="https://www.chartjs.org/img/chartjs-logo.svg" alt="ChartJS" class = "img_container">
+                  <br><br>
+                  <h6 class = "centeredText"><center>Chart.js - Used for displaying <br>nutrient properties of recipe.</center></h6></center>
+                </div>
+                <div class="column"><center>
+                  <img src="https://seeklogo.com/images/N/nodejs-logo-FBE122E377-seeklogo.com.png" alt="NodeJS" class = "img_container">
+                  <br><br>
+                  <h6 class = "centeredText"><center>Node.js & Express - Used for running localhost server <br>as well as generating dynamic content.</center></h6></center>
+                </div>
+                <div class="column"><center>
+                  <img src="https://images.apilist.fun/edamam_api.png" alt="Edamam" class = "img_container">
+                  <br><br>
+                  <h6 class = "centeredText"><center>Edamam API - Free API with a rich database of recipes <br> as well as support for food database.</center></h6></center>
+                </div>
+            </div>
+            <div class="line"></div><br><br>
+            <div>
+            <h2><em>PRELIMINARY STEPS!</em></h2>
+                <ul>
+                    <li>Install node.js and npm first. The link for it can be found <a href = "https://docs.npmjs.com/downloading-and-installing-node-js-and-npm"><b>here.</b></a></li>
+                </ul>
+            <h4><em>Instructions to use app:</em></h4>
+                <ul>
+                    <li>Download from github (You probably already made it here!)</li>
+                    <li>In a terminal window, cd into the directory</li>
+                    <li>Run the command "node app.js"</li>
+                    <li>Navigate to localhost site to run program.</li>
+                </ul>
+            </div>
+            <br>
+            <div>
+                <h4><em>urlScraper.js</em></h4>
+                    <p>This is a function written to scrape the ingredient instructions off a website (a limitation of Edamam's API, it just returns the URL.)
+                       This is due to CORS, a mechanism that allows restricted resources on a web page to be accessed from another domain outside of it. Due to 
+                       many of these webpages not allowing for their information to be scraped, they don't have CORS headers in their HTTP headers, preventing
+                       any unauthorized access to their information. Further work is to investigate how to properly webscrape and get instructions off of the site
+                       to make this website fully functional :).
+                       <br><br>
+                       The application does work for local testing however, at the moment it returns the instructions set (as that was the functionality needed.)
+                       The .js works by using <a href = "https://cheerio.js.org/"><b>Cheerio</b></a>, a node.js library for manipulating HTML, and 
+                       <a href = "https://pptr.dev/"><b>Puppeteer</b></a>, a node.js library that provides a high-level API to control a chrome browser, 
+                       simulating a HTTP request and avoiding that CORS mechanism.
+
+                       <br><br>
+                       To run the JS file, all you need to do is run <em>node urlScraper.js</em>, put in the URL you want to scrape, and it should work.
+
+                    </p>
+            </div>
+
+            <div class="line"></div>
+            <h2></h2>
+            <p></p>
+
+        </div>
+    </div>
+
+    <!--Bootstrap Code for Sidebar Navigation -->
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

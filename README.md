@@ -6,4 +6,10 @@ Target Browsers: This will include PCs and Laptops which are running on macOS an
 Link to User Manual: 
 Link to Developer Manual: 
 
-
+developer manual (rough idea): 
+  first the repository must be cloned using "git clone"
+  the project directory must be navigated to "cd"  
+  npm must be installed through "npm install" 
+  next, the application can be started through "npm start" 
+  it can be opened in a browswer through http://localhost:4000/index.html
+  

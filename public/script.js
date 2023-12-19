@@ -81,7 +81,7 @@ function searchRecipes() {
 }
 
     function displayOnClick(result) {
-        resultsContainer = ""
+        document.getElementById('resultsContainer').innerHTML = ""
         document.getElementById('recipeInstructions').innerHTML = "";
         document.getElementById('ingredients').innerHTML = "";
 
@@ -90,6 +90,7 @@ function searchRecipes() {
         document.getElementById('recipePic').src = result.recipe.image;
         const ingredients = document.getElementById('ingredients');
         createPieChart(getNutritionalValue(result.recipe))
+        mealTypes(result);
 
         const ingredientsList = result.recipe.ingredientLines;
         const titleName = document.createElement('h3')
@@ -146,8 +147,20 @@ function searchRecipes() {
     }
 
    
- function addMetric(vegan) {
-    
- }
-  
-searchRecipes()
+async function mealTypes(result) {
+
+    console.log('Adding Meal...')
+    var test = await fetch('/', {
+        method: 'POST',
+        body: JSON.stringify({
+            cuisineType: result.recipe.cuisineType,
+            mealType: result.recipe.mealType
+        }),
+        headers: {
+            "Content-type": "application/json"
+        }
+    })
+}
+
+
+ searchRecipes();

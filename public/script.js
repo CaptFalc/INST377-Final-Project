@@ -149,18 +149,19 @@ function searchRecipes() {
    
 async function mealTypes(result) {
 
-    console.log('Adding Meal...')
+    console.log('Adding Meal type...')
     var test = fetch('/', {
         method: 'POST',
         body: JSON.stringify({
-            cuisineType: result.recipe.cuisineType,
-            mealType: result.recipe.mealType
+            cuisineType: result.recipe.cuisineType[0],
+            mealType: result.recipe.mealType[0]
         }),
         headers: {
             "Content-type": "application/json"
         }
     })
     await test;
+    console.log("Meal type added!")
 }
 
 

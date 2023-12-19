@@ -150,7 +150,7 @@ function searchRecipes() {
 async function mealTypes(result) {
 
     console.log('Adding Meal...')
-    var test = await fetch('/', {
+    var test = fetch('/', {
         method: 'POST',
         body: JSON.stringify({
             cuisineType: result.recipe.cuisineType,
@@ -160,6 +160,7 @@ async function mealTypes(result) {
             "Content-type": "application/json"
         }
     })
+    await test;
 }
 
 
